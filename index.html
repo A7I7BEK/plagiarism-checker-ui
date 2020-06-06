@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login</title>
+
+
+	<!-- Library -->
+	<link rel="stylesheet" href="lib/fontawesome-free/css/all.min.css">
+	<link rel="stylesheet" href="lib/icheck-bootstrap/icheck-bootstrap.min.css">
+
+
+	<link rel="stylesheet" href="css/main.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="hold-transition login-page">
+
+
+
+<div class="login-box">
+	<div class="card">
+		<div class="card-body login-card-body">
+			<p class="login-box-msg">Sign in to start your session</p>
+
+			<form id="loginForm">
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" id="username" placeholder="Username">
+					<div class="input-group-append">
+						<div class="input-group-text">
+							<span class="fas fa-envelope"></span>
+						</div>
+					</div>
+				</div>
+
+				<div class="input-group mb-3">
+					<input type="password" class="form-control" id="password" placeholder="Password">
+					<div class="input-group-append">
+						<div class="input-group-text">
+							<span class="fas fa-lock"></span>
+						</div>
+					</div>
+				</div>
+
+				<div class="text-danger my-3 d-none" id="errorMsg">Username or Password is wrong!</div>
+
+				<div class="row">
+					<div class="col-8">
+						<div class="icheck-primary purple">
+							<input type="checkbox" id="remember">
+							<label for="remember">
+								Remember Me
+							</label>
+						</div>
+					</div>
+
+					<div class="col-4">
+						<button type="submit" class="btn bg-purple btn-block">Sign In</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+
+<!-- Library -->
+<script src="lib/jquery/jquery.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+
+<script src="js/main.min.js"></script>
+
+<script>
+	$(document).on('submit', '#loginForm', function (e) {
+		e.preventDefault();
+
+		if ($('#username').val() === 'admin' && $('#password').val() === 'password') {
+			$('#errorMsg').addClass('d-none');
+			$('#username').removeClass('is-invalid');
+			$('#password').removeClass('is-invalid');
+
+			location.href = 'home-text.html';
+		}
+		else {
+			$('#errorMsg').removeClass('d-none');
+			$('#username').addClass('is-invalid');
+			$('#password').addClass('is-invalid');
+		}
+	});
+</script>
+
+</body>
+</html>
